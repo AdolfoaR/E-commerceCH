@@ -1,0 +1,27 @@
+*{ 
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+   padding: 10px;
+    height: 4rem;
+    background-color: rgb(19,19,19);
+   
+}
+.links{
+   margin-left: 85%;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   background-color: black;
+   
+}
+.links a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-size: 25px;
+    background-color: black;
+}

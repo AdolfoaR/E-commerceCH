@@ -1,0 +1,10 @@
+*{
+  box-sizing: border-box;
+  
+}
+.greeting{
+    font-size: 100px;
+    color: brown;
+    background-color: gray;
+    height: 100vh;
+}
