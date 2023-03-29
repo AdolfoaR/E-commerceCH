@@ -4,7 +4,7 @@ import { TiendaContext } from '../../context/tienda-context'
 
 export const CartItem = (props) => {
 
-    const {id, productName, price, productImage}= props.data;
+    const {id, productName, price, category, productImage}= props.data;
     const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
     useContext(TiendaContext);
   return (

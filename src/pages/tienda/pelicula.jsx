@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { TiendaContext } from '../../context/tienda-context';
 export const Pelicula = (props) => {
-    const {id, productName, price, productImage} = props.data;
+    const {id, productName, price, productImage, category} = props.data;
     const {addToCart, cartItems} = useContext(TiendaContext)
     const cartItemCantidad = cartItems[id]
+    
   return (
     <div className='nombrePelicula'>
         <img src={productImage}  />

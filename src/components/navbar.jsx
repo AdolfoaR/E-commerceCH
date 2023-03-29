@@ -1,23 +1,18 @@
-
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "react-feather";
 import "./navbar.css";
-const categories = [
-  "Acción",
-  "Aventura",
-  "Comedia",
-  "Drama",
-  "Terror",
-  "Romance",
-];
 
-export const  Navbar= () => {
+export const Navbar = ({ categories }) => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={require("../components/emo.png")} alt="" width={100} height={40} />
+        <img
+          src={require("../components/emo.png")}
+          alt=""
+          width={100}
+          height={40}
+        />
       </div>
       <div className="links">
         <Link to="/"> Tienda </Link>
@@ -36,4 +31,4 @@ export const  Navbar= () => {
       </div>
     </div>
   );
-}
+};
