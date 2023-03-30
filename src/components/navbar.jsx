@@ -16,6 +16,7 @@ export const Navbar = ({ categories }) => {
       </div>
       <div className="links">
         <Link to="/"> Tienda </Link>
+        
         <Link to="/cart">
           <ShoppingCart size={40} />
         </Link>

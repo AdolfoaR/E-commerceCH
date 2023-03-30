@@ -24,7 +24,9 @@ function App() {
           <Navbar categories={categories} />
           <Routes>
             <Route path="/" element={<Tienda />} />
+            
             <Route path="/cart" element={<Cart />} />
+            
             {categories.map((category) => (
               <Route
                 key={category}
