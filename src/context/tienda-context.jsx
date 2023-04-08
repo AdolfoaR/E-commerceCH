@@ -1,5 +1,6 @@
 import React, {createContext, useState} from 'react'
 import { PELICULAS } from '../peliculas'
+import Pelicula from '../components/pelicul';
 export const TiendaContext = createContext (null)
 
 const getDefaultCart = () => {
@@ -11,14 +12,30 @@ const getDefaultCart = () => {
 }
 export const TiendaContexto =  (props) => {
   const [cartItems, setCartItems]= useState(getDefaultCart());
+
+const getTotalAmount = ()=>{
+  let totalAmount =0
+  for (const item in cartItems){
+    if (cartItems[item] > 0){
+      let itemInfo = PELICULAS.find((Pelicula)=> Pelicula.id=== Number(item))
+      totalAmount += cartItems[item] * itemInfo.price
+    }
+  }
+return totalAmount;
+}
+
   const addToCart= (itemId) => {
     setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}))
   }
-  const RemoveCart= (itemId) => {
+  const removeCart= (itemId) => {
     setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}))
   }
 
-  const contexValue= {cartItems, addToCart, RemoveCart}
+  const updateCartCount = (newAmount, itemId)=> {
+    setCartItems((prev)=> ({...prev, [itemId]: newAmount}))
+  }
+
+  const contexValue= {cartItems, addToCart,removeCart , updateCartCount, getTotalAmount}
 
   return (
     <TiendaContext.Provider value={contexValue} > {props.children}  </TiendaContext.Provider>

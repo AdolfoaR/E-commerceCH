@@ -4,8 +4,10 @@ import {Tienda } from "./pages/tienda/tienda";
 import {Cart } from "./pages/cart/cart";
 import {Navbar } from "./components/navbar";
 import {Category } from "./components/category"
-
+import Footer from "./components/footer";
 import { TiendaContexto } from "./context/tienda-context";
+import DetallePeliculaPage from './pages/DetallePeliculaPage';
+//import "./global.css"
 
 function App() {
   const categories = [
@@ -34,7 +36,10 @@ function App() {
                 element={<Category category={category} />}
               />
             ))}
+
+
           </Routes>
+          <Footer />
         </Router>
       </TiendaContexto>
     </div>

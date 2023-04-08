@@ -1,42 +1,79 @@
-.detalle-pelicula.fullscreen {
-position: fixed;
-    top: 20%;
-    left: 0;
-    width: 100%;
-    height: 70%;
+.detalle-pelicula {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    background-color: rgba(0, 0, 0, 0.8);
+.detalle-pelicula-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  width: 90%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
-    padding: 2rem;
-    box-sizing: border-box;
-    z-index: 9999;
-  }
-  
-  .detalle-pelicula.fullscreen h2 {
-    margin-top: 0;
-    color: white;
-  }
-  
-  .detalle-pelicula.fullscreen img {
-    max-width: 100%;
-    max-height: 59%;
-    object-fit: contain;
-    margin-bottom: 1rem;
-  }
-  
-  .detalle-pelicula.fullscreen p {
-    margin: 0;
-    color: white;
-  }
-  
-  .detalle-pelicula.fullscreen .cerrar {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    font-size: 1.5rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: white;
-  }
-  
+.detalle-pelicula-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.detalle-pelicula-header button {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.detalle-pelicula-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 2rem;
+  width: 40%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.detalle-pelicula-body img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.detalle-pelicula-body p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.detalle-pelicula-body button {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.detalle-pelicula-body button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}

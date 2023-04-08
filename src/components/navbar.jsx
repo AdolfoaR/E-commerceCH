@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from 'react';
+import { TiendaContext } from '../context/tienda-context';
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "react-feather";
 import "./navbar.css";
 
 export const Navbar = ({ categories }) => {
+
+  const { cartItems } = useContext(TiendaContext);
+
+  const cantidadEnCarrito = Object.values(cartItems).reduce(
+    (total, cantidad) => total + cantidad,
+    0
+  );
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -18,7 +27,7 @@ export const Navbar = ({ categories }) => {
         <Link to="/"> Tienda </Link>
         
         <Link to="/cart">
-          <ShoppingCart size={40} />
+          <ShoppingCart size={40} /><span>{cantidadEnCarrito}</span>
         </Link>
       </div>
       <div>

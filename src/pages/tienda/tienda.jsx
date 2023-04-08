@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PELICULAS } from '../../peliculas';
-import { DetallePelicula } from '../../components/detallepelicula';
+import DetallePelicula from '../../components/detallepelicula';
 import './tienda.css';
 import { useParams } from 'react-router-dom';
 
@@ -19,10 +19,11 @@ export const Tienda = () => {
     setMostrarDetalles(true);
   };
 
-
-const cerrarDetalle = () => {
+  const cerrarDetalle = () => {
     setPeliculaSeleccionada(null);
-  }
+    setMostrarDetalles(false);
+  };
+
   return (
     <div className="tienda">
       <div className="greeting">
@@ -32,13 +33,17 @@ const cerrarDetalle = () => {
         {peliculasFiltradas.map((pelicula) => (
           <div className="pelicula" key={pelicula.id}>
             <img src={pelicula.productImage} alt={pelicula.productName} />
-            <button onClick={() => handleMostrarDetalles(pelicula)}>
-              Ver detalles
-            </button>
+            <h3>{pelicula.productName}</h3>
+            <button onClick={() => handleMostrarDetalles(pelicula)}>Ver detalles</button>
           </div>
         ))}
       </div>
-      {peliculaSeleccionada && <DetallePelicula pelicula={peliculaSeleccionada} onClose={cerrarDetalle} />}
+      {mostrarDetalles && (
+        <DetallePelicula pelicula={peliculaSeleccionada} onClose={cerrarDetalle} />
+      )}
     </div>
   );
 };
+
+
+        

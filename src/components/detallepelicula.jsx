@@ -1,17 +1,27 @@
 import React from 'react';
 import "./detallepelicula.css"
+import DetallePeliculaPage from '../pages/DetallePeliculaPage';
 
-
-export const DetallePelicula = ({ pelicula, onClose }) => {
-    const {id, productName, price, productImage, category} = pelicula;
-    
+import { AgregarAlCarrito } from '../pages/tienda/agregarcarrito';
+const DetallePelicula = ({ pelicula, onClose }) => {
   return (
-    <div className="detalle-pelicula fullscreen">
-      <h2>{productName}</h2>
-      <img src={productImage} alt={productName} />
-      <p>{category}</p>
-      <p>Precio: {price}</p>
-      <button className='cerrar' onClick={onClose}>Cerrar</button>
+    <div className="detalle-pelicula">
+      <div className="detalle-pelicula-header">
+        <h2>{pelicula.productName}</h2>
+        <button onClick={onClose}>Cerrar</button>
+      </div>
+      <div className="detalle-pelicula-body">
+        <img src={pelicula.productImage} alt={pelicula.productName} />
+        <p>{pelicula.description}</p>
+        <p>Precio: ${pelicula.price}</p>
+        <AgregarAlCarrito pelicula={pelicula} />
+
+        
+        
+      </div>
     </div>
   );
 };
+
+export default DetallePelicula;
+

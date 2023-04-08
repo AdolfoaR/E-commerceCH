@@ -20,6 +20,7 @@ export const PELICULAS = [
         category: "Acción",
         productName: "MEG 2",
         price: 199,
+        description: "The movie everyone is talking about the new sensation in the world. an instant classic",
         productImage: pelicula1,
     },
 
