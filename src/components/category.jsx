@@ -3,7 +3,7 @@ import { PELICULAS } from "../peliculas";
 import { useParams } from "react-router-dom";
 import  Pelicula   from "./pelicul";
 //import "./category.css"
-
+import { Link, Navigate } from 'react-router-dom';
 
 
 export const Category = () => {
@@ -17,7 +17,9 @@ export const Category = () => {
       {peliculasDeCategoria.map((peliculas) => (
   <Pelicula key={peliculas.id} data={peliculas} />
 ))}
+ 
       </div>
+      
     </div>
   );
 }

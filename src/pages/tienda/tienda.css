@@ -1,135 +1,252 @@
-
-
-   
-
-   html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-.tienda {
-  max-width: 100vh;
-
-  margin: 0 auto;
-  padding: 20px;
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
   
 }
 
-.greeting {
-  text-align: center;
-  margin-bottom: 20px;
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  
+  
 }
 
-.greeting h1 {
-  font-size: 36px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+/* Encabezado */
+.logo {
+  font-size: 2rem;
   font-weight: bold;
-  margin: 0;
+  color: #333;
+  text-transform: uppercase;
 }
 
-.peliculas {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-}
-
-.pelicula {
- 
+nav ul {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  justify-content: flex-end;
 }
 
-.pelicula img {
-  max-height: 200px;
-  object-fit: cover;
+nav ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #f44336;
+}
+
+/* Productos */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: calc(33.33% - 20px);
+  margin-bottom: 40px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.product-category {
+  font-size: 0.9rem;
   margin-bottom: 10px;
 }
 
-.pelicula h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
+.product-price {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-.pelicula button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: blue;
-  border: 1px solid #ccc;
+.product-link {
+  display: inline-block;
+  background-color: #f44336;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.pelicula button:hover {
-  background-color: blue;
-  color: #fff;
-}
-
-.detalle-pelicula {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.detalle-pelicula .modal {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
+.product-link:hover {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  color: #f44336;
 }
 
-.detalle-pelicula .modal button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
 
-.detalle-pelicula .modal button:hover {
-  background-color: #ccc;
-  color: #fff;
-}
-
-.detalle-pelicula .modal h2 {
-  font-size: 30px;
-  font-weight: bold;
-  margin: 0 0 20px;
-}
-
-.detalle-pelicula .modal p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0 0 10px;
-}
-
-.category{
- height: 100vh; 
-  max-width: 100vh;
-
+/* Categoría */
+.category {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  }
+  height: 100%;
+}
+
+.category h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Películas */
+.peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.pelicula {
+  width: calc(auto - 20px);
+  margin-bottom: 40px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  
+}
+
+.pelicula img {
+  width: 300px;
+  height: 500px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.pelicula-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.pelicula-category {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.pelicula-price {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.pelicula-link {
+  display: inline-block;
+  background-color: #f44336;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.pelicula-link:hover {
+  background-color: #fff;
+  color: #f44336;
+}
+
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+
+  margin-bottom: 40px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+.movie-image {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.movie-details-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-subtitle {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.movie-category,
+.movie-description,
+.movie-price {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.agregar-carrito-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 40px;
+}
+
+.agregar-carrito-btn:hover {
+  background-color: #3e8e41;
+}
+
+.agregar-carrito-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react'
 import { PELICULAS } from '../peliculas'
-import Pelicula from '../components/pelicul';
+
 export const TiendaContext = createContext (null)
 
 const getDefaultCart = () => {

@@ -1,49 +1,31 @@
 import React, { useState } from 'react';
 import { PELICULAS } from '../../peliculas';
-import DetallePelicula from '../../components/detallepelicula';
 import './tienda.css';
-import { useParams } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { AgregarAlCarrito } from './agregarcarrito';
 
 export const Tienda = () => {
-  const { category } = useParams();
+  
 
-  const peliculasFiltradas = PELICULAS.filter(
-    (pelicula) => pelicula.categoria === category
-  );
-
-  const [mostrarDetalles, setMostrarDetalles] = useState(false);
-  const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
-
-  const handleMostrarDetalles = (pelicula) => {
-    setPeliculaSeleccionada(pelicula);
-    setMostrarDetalles(true);
-  };
-
-  const cerrarDetalle = () => {
-    setPeliculaSeleccionada(null);
-    setMostrarDetalles(false);
-  };
+ 
 
   return (
-    <div className="tienda">
-      <div className="greeting">
-        <h1>Bienvenidos a la tienda</h1>
-      </div>
-      <div className="peliculas">
-        {peliculasFiltradas.map((pelicula) => (
-          <div className="pelicula" key={pelicula.id}>
-            <img src={pelicula.productImage} alt={pelicula.productName} />
-            <h3>{pelicula.productName}</h3>
-            <button onClick={() => handleMostrarDetalles(pelicula)}>Ver detalles</button>
-          </div>
-        ))}
-      </div>
-      {mostrarDetalles && (
-        <DetallePelicula pelicula={peliculaSeleccionada} onClose={cerrarDetalle} />
-      )}
+    <div className="container">
+      
+        <h1 className="logo">Tienda</h1>
+      
+        <ul className="products">
+          {PELICULAS.map((pelicula) => (
+            <li className="product" key={pelicula.id}>
+              <img src={pelicula.productImage} alt={pelicula.productName} />
+              <h2 className="product-title">{pelicula.productName}</h2>
+              <p className="product-category">{pelicula.category}</p>
+              <p className="product-price">{pelicula.price}</p>
+              <Link className="product-link" to={`/pelicula/${pelicula.id}`}>Ver detalles</Link>
+            </li>
+          ))}
+        </ul>
+      
     </div>
-  );
-};
-
-
-        
+  ); 
+   }

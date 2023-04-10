@@ -7,7 +7,8 @@ import {Category } from "./components/category"
 import Footer from "./components/footer";
 import { TiendaContexto } from "./context/tienda-context";
 import DetallePeliculaPage from './pages/DetallePeliculaPage';
-//import "./global.css"
+import DetallePelicula from "./components/detallepelicula";
+import "./global.css"
 
 function App() {
   const categories = [
@@ -18,7 +19,7 @@ function App() {
     "Terror",
     "Romance",
   ];
-
+  
   return (
     <div className="App">
       <TiendaContexto>
@@ -28,7 +29,7 @@ function App() {
             <Route path="/" element={<Tienda />} />
             
             <Route path="/cart" element={<Cart />} />
-            
+            <Route path="/pelicula/:id" element={<DetallePeliculaPage />} />
             {categories.map((category) => (
               <Route
                 key={category}

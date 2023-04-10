@@ -7,8 +7,8 @@ import { TiendaContext } from '../../context/tienda-context';
     const cartItemCantidad = cartItems[pelicula.id]
   
     return (
-      <div>
-        <button className='addToCartBttn' onClick={() => addToCart(pelicula.id)}>Agregar al carrito</button>
+      <div className='agregar-carrito-btn'>
+        <button  onClick={() => addToCart(pelicula.id)}>Agregar al carrito</button>
         {cartItemCantidad > 0 && <> ({cartItemCantidad}) </>}
       </div>
     )

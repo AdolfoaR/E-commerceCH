@@ -1,12 +1,13 @@
-import React from 'react';
-import DetallePelicula from '../components/detallepelicula';
 
-const DetallePeliculaPage = ({ pelicula }) => {
-return (
-<div>
-<DetallePelicula pelicula={pelicula} />
-</div>
-);
+import React from 'react';
+import DetallesPelicula from '../components/detallepelicula';
+
+const DetallePeliculaPage = () => {
+  return (
+    <div className="detalle-pelicula">
+      <DetallesPelicula />
+    </div>
+  );
 };
 
 export default DetallePeliculaPage;
