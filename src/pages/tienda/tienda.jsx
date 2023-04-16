@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
-import { PELICULAS } from '../../peliculas';
+import React, { useState, useEffect } from 'react';
+import db from '../../services/firebase';
+import { getDocs, collection } from 'firebase/firestore';
+
+
 import './tienda.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AgregarAlCarrito } from './agregarcarrito';
+import { getItems } from '../../services/firebase';
 
 export const Tienda = () => {
-  
+  const [peliculas, setPeliculas] = useState([]);
 
+  useEffect(() => {
+    
+      getItems().then((respuesta) => {
+        setPeliculas(respuesta);
+      });
+    },[]);
  
-
   return (
     <div className="container">
-      
-        <h1 className="logo">Tienda</h1>
-      
-        <ul className="products">
-          {PELICULAS.map((pelicula) => (
-            <li className="product" key={pelicula.id}>
-              <img src={pelicula.productImage} alt={pelicula.productName} />
-              <h2 className="product-title">{pelicula.productName}</h2>
-              <p className="product-category">{pelicula.category}</p>
-              <p className="product-price">{pelicula.price}</p>
-              <Link className="product-link" to={`/pelicula/${pelicula.id}`}>Ver detalles</Link>
-            </li>
-          ))}
-        </ul>
-      
+      <h1 className="logo">Tienda</h1>
+      <ul className="products">
+        {peliculas.map((pelicula) => (
+          <li className="product" key={pelicula.id}>
+            <img src={pelicula.productImage} alt={pelicula.productName} />
+            <h2 className="product-title">{pelicula.productName}</h2>
+            <p className="product-category">{pelicula.category}</p>
+            <p className="product-price">${pelicula.price}</p>
+            <Link className="product-link" to={`/peliculas/${pelicula.id}`}>Ver detalles</Link>
+          </li>
+        ))}
+      </ul>
     </div>
-  ); 
-   }
+  );
+};

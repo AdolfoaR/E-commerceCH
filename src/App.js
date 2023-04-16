@@ -6,7 +6,6 @@ import {Navbar } from "./components/navbar";
 import {Category } from "./components/category"
 import Footer from "./components/footer";
 import { TiendaContexto } from "./context/tienda-context";
-import DetallePeliculaPage from './pages/DetallePeliculaPage';
 import DetallePelicula from "./components/detallepelicula";
 import "./global.css"
 
@@ -29,7 +28,7 @@ function App() {
             <Route path="/" element={<Tienda />} />
             
             <Route path="/cart" element={<Cart />} />
-            <Route path="/pelicula/:id" element={<DetallePeliculaPage />} />
+            <Route path="/peliculas/:id" element={<DetallePelicula />} />
             {categories.map((category) => (
               <Route
                 key={category}
@@ -47,5 +46,4 @@ function App() {
   );
 }
 export default App;
-
 
