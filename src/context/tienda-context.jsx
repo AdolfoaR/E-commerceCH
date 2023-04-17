@@ -2,7 +2,7 @@
 import  React, { createContext, useState, useEffect } from 'react';
 import { getItems } from '../services/firebase';
 
-export const TiendaContext = createContext();
+export const TiendaContext = createContext({ cartItems: [] });
 
 const getDefaultCart = (numItems) => {
   return Array.from({ length: numItems }, () => 0).reduce(
