@@ -13,8 +13,7 @@ const getDefaultCart = (numItems) => {
 
 export const TiendaContexto = (props) => {
   const [peliculas, setPeliculas] = useState([]);
-  const [cartItems, setCartItems] = useState({});
-
+  const [cartItems, setCartItems] = useState(getDefaultCart(0));
   useEffect(() => {
     const fetchData = async () => {
       const response = await getItems();
@@ -51,7 +50,11 @@ export const TiendaContexto = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
-  const contextValue = { cartItems, addToCart, removeCart, updateCartCount, getTotalAmount};
+  const clearCart = () => {
+    setCartItems(getDefaultCart(0));
+  };
+
+  const contextValue = { cartItems, addToCart, removeCart, updateCartCount, getTotalAmount, clearCart};
 
   return <TiendaContext.Provider value={contextValue}>{props.children}</TiendaContext.Provider>;
 };

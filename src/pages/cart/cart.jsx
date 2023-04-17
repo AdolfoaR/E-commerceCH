@@ -11,11 +11,11 @@ import { createOrder } from '../../services/firebase'
 
 export const Cart = () => {
   const context =useContext(TiendaContext);
-  const { cartItems, getTotalAmount } = context;
+  const { cartItems, getTotalAmount, clearCart } = context;
   const totalAmount = getTotalAmount();
   const navigate = useNavigate();
   const [peliculas, setPeliculas] = useState([]);
-
+  const [orderCreated, setOrderCreated] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(null);
 
@@ -60,6 +60,8 @@ export const Cart = () => {
 
     const orderId = await createOrder(order);
     console.log('Order created with ID:', orderId);
+    setOrderCreated(true);
+    clearCart(); 
   }
   
 
