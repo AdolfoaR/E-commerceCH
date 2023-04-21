@@ -22,10 +22,8 @@ export const CartItem = (props) => {
 
 
   return (
-   <div className='carrito'>
-    <div>
-        <h1>Productos</h1>
-      </div>
+   
+    
     <div className='cartItems'>
       
       <img src= {productImage} />
@@ -41,6 +39,6 @@ export const CartItem = (props) => {
         </div>
         
     </div>
-    </div>
+    
 );
  }

@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 
 import {initializeApp} from 'firebase/app';
 
@@ -37,9 +36,8 @@ export async function getItems() {
 }
 
 export async function getSingleItem(idURL) {
-  //referencia
+  
   const docRef = doc(db, "peliculas", idURL);
-  //snapshot
   const docSnap = await getDoc(docRef);
   return { id: docSnap.id, ...docSnap.data() };
 }
@@ -47,7 +45,7 @@ export async function getSingleItem(idURL) {
 export async function getItemsByCategory(category) {
   const productsRef = collection(db, "peliculas");
 
-  /* Crear una consutlta A: productosREf  CUANDO se cumpla where( if( )) */
+  
   const q = query(productsRef, where("category", "==", category));
 
   const productsSnap = await getDocs(q);
@@ -63,5 +61,5 @@ export async function getItemsByCategory(category) {
 export async function createOrder(order) {
   const collectionOrdersRef = collection(db, "orders");
   const response = await addDoc(collectionOrdersRef, order);
-  return response.id; // resolve(response.id)
+  return response.id; 
 }

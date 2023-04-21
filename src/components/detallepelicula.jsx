@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { AgregarAlCarrito } from '../pages/tienda/agregarcarrito';
 import { getSingleItem } from '../services/firebase';
 
-//import "./detallepelicula.css"
+
 function DetallesPelicula() {
   
   const [peliculas, setPeliculas] = useState([]);

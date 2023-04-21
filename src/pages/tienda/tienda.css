@@ -5,11 +5,12 @@
   padding: 0;
   
   
+  
 }
 
 body {
   font-family: Arial, sans-serif;
-  height: 100vh;
+  height: 100%;
   
   
 }
@@ -238,7 +239,7 @@ height: 100%;
   font-size: 1.2rem;
   margin-top: 20px;
   cursor: pointer;
-  width: 40px;
+  width: 190px;
 }
 
 .agregar-carrito-btn:hover {

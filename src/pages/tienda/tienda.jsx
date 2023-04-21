@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import db from '../../services/firebase';
-import { getDocs, collection } from 'firebase/firestore';
-
 
 import './tienda.css';
 import { Link } from 'react-router-dom';
-import { AgregarAlCarrito } from './agregarcarrito';
 import { getItems } from '../../services/firebase';
 
 export const Tienda = () => {

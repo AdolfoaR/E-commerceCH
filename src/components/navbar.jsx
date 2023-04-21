@@ -16,12 +16,14 @@ export const Navbar = ({ categories }) => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img
-          src={require("../components/emo.png")}
-          alt=""
-          width={100}
-          height={40}
-        />
+      <Link to="/"> 
+  <img
+    src={require("../components/emo.png")}
+    alt=""
+    width={100}
+    height={40}
+  />
+</Link>
       </div>
       <div className="links">
         <Link to="/"> Tienda </Link>

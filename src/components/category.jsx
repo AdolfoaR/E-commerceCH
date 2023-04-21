@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
-
-import './category.css';
-
 import { Link, useParams } from 'react-router-dom';
 import { getItemsByCategory } from '../services/firebase';
 

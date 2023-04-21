@@ -1,10 +1,11 @@
+
+
 import React, { useContext, useState, useEffect } from 'react'
 import { TiendaContext } from '../../context/tienda-context'
 import { CartItem } from './cart-item'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import "./cart.css"
 import { getItems } from '../../services/firebase'
-import Modal from '../../components/Modal'
 import CheckoutForm from '../../components/CheckoutForm'
 import { createOrder } from '../../services/firebase'
 
@@ -18,10 +19,18 @@ export const Cart = () => {
   const [orderCreated, setOrderCreated] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(null);
+  const [orderId, setOrderId] = useState("");
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [cartItem, setCartItems] = useState([]);
+  
 
   
-  // función para enviar los datos del formulario y crear la orden en Firestore
- 
+  
+  const onClose = () => {
+    clearCart()
+    navigate('/')
+    setShowCheckout(false);
+  };
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -60,14 +69,16 @@ export const Cart = () => {
 
     const orderId = await createOrder(order);
     console.log('Order created with ID:', orderId);
+    setOrderId(orderId);
     setOrderCreated(true);
-    clearCart(); 
+    
   }
   
 
   return (
     <div className='carrito'>
-      <div className='carrito'>
+      <div className='cartIt'>
+      <h1>Productos</h1>
       {Object.entries(cartItems)
       .filter(([id, cantidad]) => cantidad > 0)
       .map(([id, cantidad]) => {
@@ -78,12 +89,12 @@ export const Cart = () => {
       {totalAmount > 0 ? (
         <div className='checkout'>
           <p>subtotal de productos: ${totalAmount} </p>
-          <button onClick={() => navigate('/')}>Continuar comprando</button>
-          <button onClick={handleCheckout}>Finalizar compra</button>
+          <button className='agregar-carrito-btn'onClick={() => navigate('/')}>Continuar comprando</button>
+          <button className='agregar-carrito-btn'onClick={handleCheckout}>Finalizar compra</button>
           {showModal && (
-  <Modal onClose={handleCloseModal}>
-    <CheckoutForm onCheckout={handleCheckout}  />
-  </Modal>
+  
+  <CheckoutForm onCheckout={handleCheckout} onClose={onClose}  orderId={orderId} />
+ 
 )}
         </div>
       ) : (
